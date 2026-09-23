@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; font-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0F2A4A">
+  <title>Browse courses — Capacity Connect</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="assets/icons/favicon-64.png">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/portal.css">
+</head>
+<body>
+  <header id="app-header"></header>
+  <main class="container page">
+    <div class="page-head">
+      <h1 id="page-title">Course catalogue</h1>
+      <p id="page-sub">Every module in the portal. Request enrolment, and your station head or the Training Division approves it.</p>
+    </div>
+    <div id="view" aria-live="polite"></div>
+  </main>
+  <dialog class="modal" id="enrol" aria-labelledby="enrol-title">
+    <form id="enrol-form">
+      <div class="modal-body">
+        <h2 id="enrol-title">Request enrolment</h2>
+        <p class="muted small" id="enrol-where"></p>
+        <div class="field"><label for="enrol-reason">Why do you need this module?</label>
+          <textarea class="input" id="enrol-reason" rows="3" placeholder="e.g. Our station is getting a new radar and I will be on the operating roster."></textarea>
+          <span class="field-hint">The Training Division sees this when it forms batches.</span></div>
+        <p class="field-error" id="enrol-error" role="alert"></p>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" data-close>Cancel</button>
+        <button type="submit" class="btn btn-primary" id="enrol-submit">Send request</button>
+      </div>
+    </form>
+  </dialog>
+  <script type="module" src="js/pages/courses.js"></script>
+</body>
+</html>

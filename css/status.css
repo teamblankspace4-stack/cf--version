@@ -1,0 +1,30 @@
+/* System check page */
+.status-page { padding-top: var(--sp-6); padding-bottom: var(--sp-8); }
+.status-intro { margin-bottom: var(--sp-5); }
+.status-intro h1 { font-size: var(--fs-2xl); }
+
+.status-grid {
+  display: grid;
+  gap: var(--sp-4);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.status-wide { grid-column: 1 / -1; }
+
+.kv { display: grid; grid-template-columns: auto 1fr; gap: var(--sp-2) var(--sp-4); margin: 0 0 var(--sp-4); font-size: var(--fs-sm); }
+.kv dt { color: var(--ink-muted); }
+.kv dd { margin: 0; font-weight: 500; text-align: right; font-variant-numeric: tabular-nums; }
+
+.steps { margin: 0; padding-left: 1.3rem; max-width: 70ch; }
+.steps li { margin-bottom: var(--sp-2); }
+
+.danger-zone { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-4); flex-wrap: wrap; border-color: var(--danger-bg); }
+.danger-zone p { margin: 0; }
+
+
+@media (max-width: 900px) {
+  .status-grid { grid-template-columns: 1fr; }
+}
+
+/* Text sitting on the portal band */
+
+.status-page .panel h2 { font-family: var(--font); font-size: var(--fs-lg); font-weight: 600; color: var(--ink); margin: 0; }

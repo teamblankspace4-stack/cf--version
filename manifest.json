@@ -1,0 +1,19 @@
+{
+  "id": "./",
+  "name": "Capacity Connect: IMD Training Portal",
+  "short_name": "Capacity Connect",
+  "description": "Training and skills portal for India Meteorological Department officers. Works offline at remote stations.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#F4F7FA",
+  "theme_color": "#0E2A47",
+  "lang": "en-IN",
+  "categories": ["education", "productivity"],
+  "icons": [
+    { "src": "assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "assets/icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

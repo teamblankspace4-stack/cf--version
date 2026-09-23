@@ -1,0 +1,247 @@
+{
+ "code": "SAT-101",
+ "units": [
+  {
+   "order": 1,
+   "type": "video",
+   "title": "SAT-101: core lesson",
+   "video": "assets/media/sat-101-lesson.mp4",
+   "poster": "assets/media/sat-101-poster.jpg",
+   "duration": 205,
+   "chapters": [
+    {
+     "start": 0,
+     "end": 29,
+     "title": "INSAT-3D and 3DR at a glance",
+     "points": [
+      "Geostationary satellites over the Indian Ocean region",
+      "Imager and sounder instruments",
+      "Frequent images through day and night"
+     ],
+     "keywords": [
+      "insat",
+      "3d",
+      "3dr",
+      "satellite",
+      "geostationary",
+      "imager",
+      "sounder",
+      "introduction",
+      "overview"
+     ],
+     "text": "INSAT-3D and INSAT-3DR are Indian geostationary meteorological satellites. Because they stay fixed over the equator, they watch the same region continuously, including the whole Indian subcontinent and the surrounding seas. Each carries an imager, which produces the pictures we use most, and a sounder, which retrieves temperature and moisture profiles. Operating the two together gives frequent images through the day and night."
+    },
+    {
+     "start": 29,
+     "end": 60,
+     "title": "The imager channels",
+     "points": [
+      "Visible and shortwave infrared",
+      "Middle infrared and water vapour",
+      "Two thermal infrared windows"
+     ],
+     "keywords": [
+      "channel",
+      "band",
+      "visible",
+      "infrared",
+      "ir",
+      "water",
+      "vapour",
+      "vapor",
+      "tir",
+      "swir",
+      "mir",
+      "wavelength"
+     ],
+     "text": "The imager observes in six channels: visible, shortwave infrared, middle infrared, water vapour, and two thermal infrared windows. Visible and shortwave channels see reflected sunlight. The thermal infrared channels measure the temperature of whatever the satellite sees, whether cloud top or ground. The water vapour channel senses moisture in the middle and upper atmosphere. Each channel answers a different question, and the skill is in combining them."
+    },
+    {
+     "start": 60,
+     "end": 88,
+     "title": "Reading visible imagery",
+     "points": [
+      "Shows reflected sunlight, so daytime only",
+      "Thick clouds look bright; thin clouds look grey",
+      "Texture separates lumpy convection from smooth fog"
+     ],
+     "keywords": [
+      "visible",
+      "vis",
+      "reflectance",
+      "bright",
+      "daytime",
+      "texture",
+      "fog",
+      "low",
+      "cloud",
+      "thick"
+     ],
+     "text": "Visible imagery shows reflected sunlight, so it is available only in daytime. Thick clouds with a lot of water look bright white, and thin clouds look grey. Texture matters as much as brightness. Convective clouds look lumpy and cast shadows in the morning and evening, while fog and low stratus look smooth, with edges that follow valleys and coastlines."
+    },
+    {
+     "start": 88,
+     "end": 115,
+     "title": "Reading thermal infrared imagery",
+     "points": [
+      "Shows brightness temperature, day and night",
+      "Colder means higher cloud tops",
+      "Very cold tops mark deep convection"
+     ],
+     "keywords": [
+      "infrared",
+      "ir",
+      "thermal",
+      "brightness",
+      "temperature",
+      "cold",
+      "cloud",
+      "top",
+      "night",
+      "convection",
+      "height"
+     ],
+     "text": "Thermal infrared imagery shows brightness temperature and works day and night. Because the atmosphere gets colder with height, colder cloud tops are higher cloud tops. Very cold, expanding tops mark deep convection and thunderstorms. The weakness is low cloud and fog: their tops are nearly as warm as the ground, so they can almost disappear in infrared alone."
+    },
+    {
+     "start": 115,
+     "end": 146,
+     "title": "Reading water vapour imagery",
+     "points": [
+      "Senses moisture in the middle and upper atmosphere",
+      "Dark areas are dry; white areas are moist",
+      "Reveals troughs, jet streams and dry intrusions"
+     ],
+     "keywords": [
+      "water",
+      "vapour",
+      "vapor",
+      "wv",
+      "moisture",
+      "dry",
+      "jet",
+      "trough",
+      "upper",
+      "intrusion"
+     ],
+     "text": "The water vapour channel shows moisture in the middle and upper troposphere, even where there is no cloud. Dark areas are dry, often where air is sinking, and white areas are moist. This makes the flow of the upper atmosphere visible: troughs, jet streams and dry air intruding into a weather system. A dark slot pushing into a cyclone or a monsoon trough is worth watching."
+    },
+    {
+     "start": 146,
+     "end": 172,
+     "title": "Combining channels to identify cloud",
+     "points": [
+      "Bright visible plus cold infrared: deep convection",
+      "Bright visible plus warm infrared: low cloud or fog",
+      "Thin visible plus cold infrared: cirrus"
+     ],
+     "keywords": [
+      "combine",
+      "combination",
+      "identify",
+      "cumulonimbus",
+      "cb",
+      "cirrus",
+      "fog",
+      "low",
+      "classification",
+      "rgb"
+     ],
+     "text": "No single channel identifies cloud type reliably, so compare them. Bright in visible and very cold in infrared means thick, tall cloud, typically cumulonimbus. Bright in visible but warm in infrared means low cloud or fog. Cold in infrared but thin and grey in visible means high cirrus, which produces no rain at the surface."
+    },
+    {
+     "start": 172,
+     "end": 205,
+     "title": "Indian weather systems from space",
+     "points": [
+      "Monsoon cloud bands and the monsoon trough",
+      "Tropical cyclones: dense overcast and the eye",
+      "Western disturbances in winter"
+     ],
+     "keywords": [
+      "monsoon",
+      "cyclone",
+      "eye",
+      "western",
+      "disturbance",
+      "cdo",
+      "system",
+      "indian",
+      "bay",
+      "arabian"
+     ],
+     "text": "Over India, a few patterns come up again and again. During the monsoon, look for organised cloud bands along the monsoon trough and offshore convection along the west coast. For tropical cyclones in the Bay of Bengal and Arabian Sea, look for the central dense overcast, curved rain bands, and, in stronger systems, a clear eye. In winter, western disturbances bring cloud bands from the west into the north of the country."
+    }
+   ]
+  },
+  {
+   "order": 2,
+   "type": "reading",
+   "title": "Field reference notes: channel comparison guide",
+   "html": "<h3>What each channel shows</h3><table><thead><tr><th>Channel</th><th>Shows</th><th>When</th></tr></thead><tbody><tr><td>Visible</td><td>Reflected sunlight, cloud thickness and texture</td><td>Daytime only</td></tr><tr><td>Thermal infrared</td><td>Brightness temperature, cloud-top height</td><td>Day and night</td></tr><tr><td>Water vapour</td><td>Mid and upper-level moisture</td><td>Day and night</td></tr></tbody></table><h3>Identifying cloud</h3><table><thead><tr><th>Visible</th><th>Infrared</th><th>Likely cloud</th></tr></thead><tbody><tr><td>Bright</td><td>Very cold</td><td>Deep convection (cumulonimbus)</td></tr><tr><td>Bright</td><td>Warm</td><td>Low cloud or fog</td></tr><tr><td>Thin, grey</td><td>Cold</td><td>Cirrus</td></tr></tbody></table><h3>Patterns to know</h3><ul><li>Monsoon: cloud bands along the monsoon trough.</li><li>Tropical cyclone: central dense overcast, curved bands, eye in strong systems.</li><li>Western disturbance: cloud band moving into north India in winter.</li></ul>"
+  },
+  {
+   "order": 3,
+   "type": "quiz",
+   "title": "Check your understanding",
+   "passMark": 70,
+   "questions": [
+    {
+     "q": "Why is visible imagery not available at night?",
+     "options": [
+      "The satellite switches off",
+      "It depends on reflected sunlight",
+      "Clouds are cold at night",
+      "Night data is classified"
+     ],
+     "answer": 1,
+     "explain": "Visible channels measure reflected sunlight, so there is nothing to see without the sun."
+    },
+    {
+     "q": "In thermal infrared imagery, colder cloud tops usually mean:",
+     "options": [
+      "Lower clouds",
+      "Higher clouds",
+      "Thinner clouds",
+      "Fog"
+     ],
+     "answer": 1,
+     "explain": "Temperature falls with height, so colder tops are higher tops."
+    },
+    {
+     "q": "A cloud is bright in visible imagery but warm in infrared. What is it most likely to be?",
+     "options": [
+      "Cumulonimbus",
+      "Cirrus",
+      "Low cloud or fog",
+      "A cyclone eye"
+     ],
+     "answer": 2,
+     "explain": "Bright means thick; warm means low. Together they point to low cloud or fog."
+    },
+    {
+     "q": "Dark areas in water vapour imagery indicate:",
+     "options": [
+      "Heavy rain",
+      "Dry air in the middle and upper atmosphere",
+      "Snow cover",
+      "Sensor failure"
+     ],
+     "answer": 1,
+     "explain": "Dark shading in the water vapour channel shows dry air, often where it is sinking."
+    },
+    {
+     "q": "Which feature marks a strong tropical cyclone?",
+     "options": [
+      "A clear eye inside dense overcast",
+      "Smooth grey cloud",
+      "A dark water vapour slot only",
+      "Scattered cirrus"
+     ],
+     "answer": 0,
+     "explain": "Strong cyclones often show a clear eye within the central dense overcast."
+    }
+   ]
+  }
+ ]
+}

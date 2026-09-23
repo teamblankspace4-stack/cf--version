@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; font-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0E2A47">
+  <title>My batches · Capacity Connect</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="assets/icons/favicon-64.png">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/trainer.css">
+</head>
+<body>
+  <header id="app-header" class="app-header"></header>
+  <main class="container page">
+    <div class="page-head">
+      <h1 id="page-title">Mentor dashboard</h1>
+      <p id="page-sub"></p>
+    </div>
+    <div id="view" aria-live="polite"></div>
+  </main>
+
+  <!-- Review a practical submission -->
+  <dialog class="modal modal-wide" id="review-dialog" aria-labelledby="review-title">
+    <form id="review-form">
+      <div class="modal-body">
+        <h2 id="review-title">Review practical work</h2>
+        <p class="muted small" id="review-who"></p>
+        <div id="review-submission"></div>
+        <h3 class="rubric-heading">Score the work</h3>
+        <div id="rubric"></div>
+        <div class="field">
+          <label for="review-feedback">Feedback for the officer</label>
+          <textarea class="input" id="review-feedback" rows="3" placeholder="What was done well, and what to correct."></textarea>
+          <span class="field-hint">The officer sees this on their practical task, and it stays on the training record.</span>
+        </div>
+        <p class="field-error" id="review-error" role="alert"></p>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" data-close>Cancel</button>
+        <button type="submit" class="btn btn-secondary" value="return" id="return-btn">Return for rework</button>
+        <button type="submit" class="btn btn-primary" value="approve" id="approve-btn">Approve</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Post a clarification to the batch -->
+  <dialog class="modal" id="clarify-dialog" aria-labelledby="clarify-title">
+    <form id="clarify-form">
+      <div class="modal-body">
+        <h2 id="clarify-title">Post a clarification</h2>
+        <p class="muted small" id="clarify-where"></p>
+        <div class="field">
+          <label for="clarify-text">Clarification for the batch</label>
+          <textarea class="input" id="clarify-text" rows="4"></textarea>
+          <span class="field-hint">Posted beside the lesson at that exact moment. Officers who flagged it stay anonymous.</span>
+        </div>
+        <p class="field-error" id="clarify-error" role="alert"></p>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" data-close>Cancel</button>
+        <button type="submit" class="btn btn-primary">Post to batch</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script type="module" src="js/pages/trainer.js"></script>
+</body>
+</html>

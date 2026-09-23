@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; font-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0E2A47">
+  <title>My training · Capacity Connect</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="assets/icons/favicon-64.png">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+  <header id="app-header" class="app-header"></header>
+  <main class="container page">
+    <div class="page-head">
+      <h1 id="page-title">My training</h1>
+      <p id="page-sub"></p>
+    </div>
+    <div id="view"></div>
+  </main>
+  <script type="module" src="js/pages/trainee.js"></script>
+</body>
+</html>

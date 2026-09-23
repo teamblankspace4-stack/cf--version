@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; font-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0E2A47">
+  <title>Nominations · Capacity Connect</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="assets/icons/favicon-64.png">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <header id="app-header" class="app-header"></header>
+
+  <main class="container page">
+    <div class="page-head">
+      <h1 id="page-title">Nominations</h1>
+      <p id="scope-line"></p>
+    </div>
+    <div id="view" aria-live="polite"></div>
+  </main>
+
+  <!-- Approve into batch -->
+  <dialog class="modal" id="approve-dialog" aria-labelledby="approve-title">
+    <form id="approve-form">
+      <div class="modal-body">
+        <h2 id="approve-title">Approve nominations</h2>
+        <p class="muted small" id="approve-module"></p>
+
+        <fieldset class="choice" id="existing-choice">
+          <label class="choice-row">
+            <input type="radio" name="batchMode" value="existing" checked>
+            <span>Add to an existing batch</span>
+          </label>
+          <div class="choice-body">
+            <select class="input" id="existing-batch" aria-label="Existing batch"></select>
+          </div>
+        </fieldset>
+
+        <fieldset class="choice">
+          <label class="choice-row">
+            <input type="radio" name="batchMode" value="new" id="new-batch-radio">
+            <span>Start a new batch</span>
+          </label>
+          <div class="choice-body new-batch-fields">
+            <div class="field">
+              <label for="batch-start">Start date</label>
+              <input class="input" type="date" id="batch-start">
+            </div>
+            <div class="field">
+              <label for="batch-trainer">Trainer</label>
+              <select class="input" id="batch-trainer"></select>
+              <span class="field-hint">Ranked by the trainer competency map: expertise plus teaching record.</span>
+            </div>
+          </div>
+        </fieldset>
+        <p class="field-error" id="approve-error" role="alert"></p>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" data-close>Cancel</button>
+        <button type="submit" class="btn btn-primary" id="approve-submit">Approve</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Reject -->
+  <dialog class="modal" id="reject-dialog" aria-labelledby="reject-title">
+    <form id="reject-form">
+      <div class="modal-body">
+        <h2 id="reject-title">Reject nomination</h2>
+        <p class="muted small" id="reject-who"></p>
+        <div class="field">
+          <label for="reject-reason">Reason for the station head</label>
+          <textarea class="input" id="reject-reason" rows="3" placeholder="e.g. Batch full this quarter. Please renominate for January."></textarea>
+        </div>
+        <p class="field-error" id="reject-error" role="alert"></p>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" data-close>Cancel</button>
+        <button type="submit" class="btn btn-danger">Reject nomination</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script type="module" src="js/pages/admin.js"></script>
+</body>
+</html>

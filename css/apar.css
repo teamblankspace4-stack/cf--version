@@ -1,0 +1,49 @@
+/* APAR training report: screen preview and A4 print */
+.apar-actions { display: flex; gap: var(--sp-2); margin-bottom: var(--sp-4); }
+.apar { background: #fff; border: 1px solid var(--line); border-radius: var(--r-md); padding: 28px 34px; max-width: 900px; color: var(--ink); font-size: 13px; line-height: 1.5; }
+.apar-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 18px; padding-bottom: 14px; border-bottom: 3px solid var(--navy-800); }
+.apar-brand { display: flex; gap: 10px; align-items: center; }
+.apar-brand img { width: 38px; height: 38px; border-radius: 8px; }
+.apar-brand b { display: block; font-family: var(--serif); font-size: 16px; color: var(--navy-800); }
+.apar-brand span { font-size: 11px; color: var(--ink-muted); letter-spacing: 0.04em; text-transform: uppercase; }
+.apar-title { text-align: right; }
+.apar-title h1 { font-size: 20px; margin: 0 0 2px; }
+.apar-title p { margin: 0; font-size: 12px; color: var(--ink-muted); }
+.apar h2 { font-family: var(--font); font-size: 12.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--teal-600); margin: 20px 0 8px; }
+.apar-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px 18px; }
+.apar-grid div span { display: block; font-size: 10.5px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.04em; }
+.apar-grid div b { font-weight: 600; }
+.apar-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+.apar-stats div { border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; }
+.apar-stats b { display: block; font-family: var(--serif); font-size: 22px; color: var(--navy-800); line-height: 1.1; }
+.apar-stats span { font-size: 11px; color: var(--ink-muted); }
+.apar table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.apar th, .apar td { border: 1px solid var(--line); padding: 6px 8px; text-align: left; white-space: normal; vertical-align: top; }
+.apar th { background: #F4F7FA; font-weight: 600; color: var(--ink); }
+.apar .none { color: var(--ink-muted); font-style: italic; margin: 0; }
+.apar .remarks { font-size: 11.5px; color: var(--ink-muted); }
+.apar-integrity { border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; background: #FAFBFD; font-size: 11.5px; }
+.apar-integrity code { font-size: 10.5px; word-break: break-all; }
+.apar-sign { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: 34px; }
+.apar-sign div { border-top: 1px solid var(--ink); padding-top: 6px; font-size: 11.5px; }
+.apar-sign span { display: block; color: var(--ink-muted); font-size: 10.5px; }
+.apar-note { margin-top: 18px; font-size: 10.5px; color: var(--ink-muted); border-top: 1px solid var(--line); padding-top: 8px; }
+.ok-text { color: var(--ok); font-weight: 600; }
+.bad-text { color: var(--danger); font-weight: 600; }
+@media (max-width: 760px) {
+  .apar { padding: 18px; }
+  .apar-grid, .apar-stats, .apar-sign { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .apar-head { flex-direction: column; } .apar-title { text-align: left; }
+  .apar table { display: block; overflow-x: auto; }
+}
+@media print {
+  @page { size: A4 portrait; margin: 12mm; }
+  body.has-sidebar { padding-left: 0 !important; }
+  .sidebar, .topbar, .scrim, .no-print, .banner-stack, .toast-stack { display: none !important; }
+  body { background: #fff; }
+  .page { padding: 0 !important; margin: 0 !important; max-width: none !important; }
+  .apar { border: 0; padding: 0; max-width: none; font-size: 11.5px; }
+  .apar h2 { break-after: avoid; }
+  .apar table, .apar-stats, .apar-integrity { break-inside: avoid; }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}

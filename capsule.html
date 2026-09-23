@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; font-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0F2A4A">
+  <title>Station knowledge — Capacity Connect</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="assets/icons/favicon-64.png">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/capsule.css">
+</head>
+<body>
+  <header id="app-header"></header>
+  <main class="container page">
+    <div class="page-head">
+      <h1 id="page-title">Station knowledge</h1>
+      <p id="page-sub">What the next officer at this station needs to know, kept by the people who work there.</p>
+    </div>
+    <div id="handover-slot"></div>
+    <div id="overview-slot"></div>
+    <section class="panel capsule-panel" id="capsule-panel" aria-labelledby="h-capsule">
+      <div class="capsule-head">
+        <div>
+          <h2 id="h-capsule">Capsule</h2>
+          <p class="muted small" id="capsule-meta"></p>
+        </div>
+        <div class="capsule-actions">
+          <label class="visually-hidden" for="station-select">Station</label>
+          <select class="input" id="station-select"></select>
+          <button class="btn btn-secondary" type="button" id="start-handover" hidden>Start handover</button>
+          <button class="btn btn-primary" type="button" id="add-entry">Add entry</button>
+        </div>
+      </div>
+      <div class="capsule-tools">
+        <div class="chips" id="chips" role="group" aria-label="Filter by category"></div>
+        <label class="visually-hidden" for="capsule-search">Search this capsule</label>
+        <input class="input search" id="capsule-search" type="search" placeholder="Search this capsule, e.g. rain gauge">
+      </div>
+      <div id="entries" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <dialog class="modal" id="entry-dialog" aria-labelledby="entry-title">
+    <form id="entry-form">
+      <div class="modal-body">
+        <h2 id="entry-title">Add to the capsule</h2>
+        <p class="muted small" id="entry-where"></p>
+        <div class="field">
+          <label for="entry-category">Category</label>
+          <select class="input" id="entry-category"></select>
+          <span class="field-hint" id="entry-hint"></span>
+        </div>
+        <div class="field">
+          <label for="entry-heading">Title</label>
+          <input class="input" id="entry-heading" maxlength="120" placeholder="e.g. Rain gauge funnel clogs after the first monsoon week">
+        </div>
+        <div class="field">
+          <label for="entry-body">What the next officer needs to know</label>
+          <textarea class="input" id="entry-body" rows="5" placeholder="What happens, when, and what to do about it."></textarea>
+        </div>
+        <label class="check-row"><input type="checkbox" id="entry-must"> Must-read in handovers</label>
+        <p class="field-error" id="entry-error" role="alert"></p>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" data-close>Cancel</button>
+        <button type="submit" class="btn btn-primary">Save entry</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog class="modal" id="handover-dialog" aria-labelledby="handover-title">
+    <form id="handover-form">
+      <div class="modal-body">
+        <h2 id="handover-title">Start a handover</h2>
+        <p class="muted small" id="handover-where"></p>
+        <div class="field">
+          <label for="ho-from">Outgoing officer</label>
+          <select class="input" id="ho-from"></select>
+        </div>
+        <div class="field">
+          <label for="ho-to">Incoming officer</label>
+          <select class="input" id="ho-to"></select>
+          <span class="field-hint">They'll see the handover on their dashboard and must read every must-read entry before acknowledging.</span>
+        </div>
+        <div class="field">
+          <label for="ho-note">Note for the incoming officer</label>
+          <textarea class="input" id="ho-note" rows="2" placeholder="e.g. Takes over the morning observations from 15 October."></textarea>
+        </div>
+        <p class="field-error" id="handover-error" role="alert"></p>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" data-close>Cancel</button>
+        <button type="submit" class="btn btn-primary">Start handover</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script type="module" src="js/pages/capsule.js"></script>
+</body>
+</html>

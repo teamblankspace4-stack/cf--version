@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; font-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0F2A4A">
+  <meta name="description" content="Request a Capacity Connect account. The Training Division approves every account before it can sign in.">
+  <title>Request an account — Capacity Connect</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="assets/icons/favicon-64.png">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body class="login-page">
+  <div class="login-layout">
+    <aside class="login-side">
+      <a class="brand brand-light" href="index.html"><img src="assets/icons/mark.svg" alt="">Capacity Connect</a>
+      <div class="side-copy">
+        <h1>Request your account.</h1>
+        <p>The Training Division checks every request against the station roster before the account can sign in. Training itself still comes through nomination or an approved enrolment request.</p>
+      </div>
+      <p class="login-foot">For problem statement SIH26075 · Ministry of Earth Sciences · India Meteorological Department</p>
+      <p class="login-foot disclaimer">Student prototype built for Smart India Hackathon 2026 by Team Blankspace, SGGS Nanded. It is not an official website of the India Meteorological Department or the Ministry of Earth Sciences, and it is not connected to any government system. All officers, stations and records shown are demo data.</p>
+    </aside>
+    <main class="login-main">
+      <div class="login-inner">
+        <section id="signup-step" aria-labelledby="h-signup">
+          <h2 id="h-signup">Request an account</h2>
+          <p class="muted">Use the details on your service card. You'll be able to sign in once it's approved.</p>
+          <form id="signup-form" novalidate>
+            <div class="field"><label for="su-name">Full name</label><input class="input" id="su-name" autocomplete="name"></div>
+            <div class="field"><label for="su-emp">Employee ID</label><input class="input" id="su-emp" placeholder="e.g. T-4101" autocomplete="username"></div>
+            <div class="field"><label for="su-email">Work email</label><input class="input" id="su-email" type="email" placeholder="name@imd.gov.in" autocomplete="email"></div>
+            <div class="field"><label for="su-desig">Designation</label><input class="input" id="su-desig" placeholder="e.g. Scientific Assistant"></div>
+            <div class="field"><label for="su-station">Station</label><select class="input" id="su-station"></select></div>
+            <div class="field"><label for="su-role">Role you need</label><select class="input" id="su-role">
+              <option value="trainee">Trainee</option><option value="trainer">Trainer / Mentor</option><option value="admin">Administrator</option></select>
+              <span class="field-hint">The Training Division confirms the role when it approves the account.</span></div>
+            <div class="field"><label for="su-reason">Why you need access (optional)</label><input class="input" id="su-reason" placeholder="e.g. Joined Veraval Observatory this month"></div>
+            <div class="field"><label for="su-pw">Password</label>
+              <div class="pw-wrap"><input class="input" id="su-pw" type="password" autocomplete="new-password"><button class="pw-toggle" type="button" id="su-pw-toggle" aria-label="Show password">Show</button></div>
+              <span class="field-hint">At least 8 characters, with letters and numbers.</span></div>
+            <p class="field-error" id="su-error" role="alert"></p>
+            <button class="btn btn-primary btn-block" type="submit" id="su-submit">Send request</button>
+          </form>
+          <p class="login-note">Already have an account? <a href="login.html">Sign in</a></p>
+        </section>
+        <section id="signup-done" hidden aria-labelledby="h-done">
+          <h2 id="h-done">Request sent</h2>
+          <p class="muted" id="done-text"></p>
+          <a class="btn btn-secondary" href="login.html">Back to sign in</a>
+        </section>
+      </div>
+    </main>
+  </div>
+  <script type="module" src="js/pages/signup.js"></script>
+</body>
+</html>

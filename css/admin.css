@@ -1,0 +1,33 @@
+/* Administrator: nominations */
+.admin-grid { display: grid; gap: var(--sp-5); grid-template-columns: minmax(0, 1fr); }
+
+/* Summary strip */
+
+/* Nominate form */
+.module-info { font-size: var(--fs-sm); color: var(--ink-muted); margin: calc(-1 * var(--sp-2)) 0 var(--sp-4); }
+.officer-cell b { display: block; font-weight: 600; }
+.officer-cell span { font-size: var(--fs-xs); color: var(--ink-muted); }
+.skills { display: flex; gap: 4px; flex-wrap: wrap; }
+.skill { font-size: var(--fs-xs); padding: 1px 6px; border-radius: var(--r-sm); background: var(--paper); border: 1px solid var(--line); color: var(--ink-muted); }
+.skill.is-match { background: var(--teal-100); border-color: var(--teal-100); color: var(--navy-800); font-weight: 600; }
+tr.is-disabled td { color: var(--ink-muted); }
+tr.is-selected td { background: #F0F9F9; }
+td.check, th.check { width: 44px; padding-right: 0; }
+td.reason { white-space: normal; min-width: 220px; max-width: 360px; }
+.form-foot { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-4); flex-wrap: wrap; margin-top: var(--sp-4); }
+.form-foot .field-error:empty { display: none; }
+
+/* Queue groups */
+.queue-group + .queue-group { margin-top: var(--sp-5); }
+.queue-head { display: flex; align-items: baseline; justify-content: space-between; gap: var(--sp-3); flex-wrap: wrap; margin-bottom: var(--sp-2); }
+.queue-head h3 { margin: 0; font-size: var(--fs-md); }
+.queue-head .muted { font-size: var(--fs-sm); }
+.queue-foot { display: flex; justify-content: flex-end; margin-top: var(--sp-2); }
+
+/* Approve dialog choices */
+.choice { border: 1px solid var(--line); border-radius: var(--r-md); padding: var(--sp-3) var(--sp-4); margin: 0 0 var(--sp-3); }
+.choice-row { display: flex; align-items: center; gap: var(--sp-2); font-weight: 500; cursor: pointer; }
+.choice-body { margin-top: var(--sp-3); padding-left: 26px; }
+.choice-body .field:last-child { margin-bottom: 0; }
+.choice:has(input[type="radio"]:not(:checked)) .choice-body { opacity: 0.45; }
+#approve-error:empty, #reject-error:empty { display: none; }

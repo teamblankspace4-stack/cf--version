@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; font-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0E2A47">
+  <meta name="description" content="Check that Capacity Connect is ready to work offline on this device.">
+  <title>System check · Capacity Connect</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="assets/icons/favicon-64.png">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/status.css">
+</head>
+<body class="app-shell">
+  <div class="app-band" aria-hidden="true"></div>
+  <header class="app-header">
+    <div class="container">
+      <a class="brand" href="index.html"><img src="assets/icons/mark.svg" alt="">Capacity Connect</a>
+      <span class="spacer"></span>
+      <button class="btn btn-secondary" id="install-btn" hidden>Install app</button>
+    </div>
+  </header>
+
+  <main class="container status-page">
+    <div class="status-intro">
+      <h1>System check</h1>
+      <p class="muted">Confirms this device can run Capacity Connect without a network. Open this page once while online, then follow the offline test below.</p>
+    </div>
+
+    <div class="status-grid">
+      <section class="panel" aria-labelledby="h-app">
+        <div class="panel-title"><h2 id="h-app">Offline readiness</h2><span id="sw-pill" class="pill">Checking</span></div>
+        <dl class="kv">
+          <dt>App version</dt><dd id="sw-version">—</dd>
+          <dt>Files saved for offline</dt><dd id="sw-files">—</dd>
+          <dt>Storage used on device</dt><dd id="storage-used">—</dd>
+          <dt>Installed as an app</dt><dd id="installed">—</dd>
+        </dl>
+      </section>
+
+      <section class="panel" aria-labelledby="h-net">
+        <div class="panel-title"><h2 id="h-net">Connection and sync</h2><span id="net-pill" class="pill">—</span></div>
+        <dl class="kv">
+          <dt>Waiting to sync</dt><dd id="outbox-pending">—</dd>
+          <dt>Synced</dt><dd id="outbox-synced">—</dd>
+          <dt>Last change</dt><dd id="outbox-last">—</dd>
+        </dl>
+        <div class="row">
+          <button class="btn btn-primary" id="test-change">Save a test change</button>
+          <button class="btn btn-secondary" id="sync-now">Sync now</button>
+        </div>
+      </section>
+
+      <section class="panel" aria-labelledby="h-audit">
+        <div class="panel-title"><h2 id="h-audit">Audit trail</h2><span id="audit-pill" class="pill">Not verified</span></div>
+        <p class="small muted">Every change is chained to the one before it with a SHA-256 hash. Editing any past entry breaks the chain.</p>
+        <dl class="kv">
+          <dt>Entries</dt><dd id="audit-count">—</dd>
+        </dl>
+        <button class="btn btn-secondary" id="verify-audit">Verify integrity</button>
+      </section>
+
+      <section class="panel status-wide" aria-labelledby="h-db">
+        <div class="panel-title"><h2 id="h-db">Data on this device</h2><span class="small muted" id="seed-version"></span></div>
+        <div class="table-wrap"><table><thead><tr><th>Table</th><th class="num">Records</th></tr></thead><tbody id="db-rows"></tbody></table></div>
+      </section>
+
+      <section class="panel status-wide" aria-labelledby="h-test">
+        <h2 id="h-test">Offline test (run before every demo)</h2>
+        <ol class="steps">
+          <li>With internet on, open this page and wait until <b>Offline readiness</b> shows <b>Ready</b>.</li>
+          <li>Turn Wi-Fi off, or in Chrome DevTools open <b>Network</b> and choose <b>Offline</b>.</li>
+          <li>Reload the page. It should load normally with the offline banner at the bottom.</li>
+          <li>Press <b>Save a test change</b> twice. <b>Waiting to sync</b> goes up.</li>
+          <li>Turn Wi-Fi back on. The banner shows syncing, then <b>All changes synced</b>.</li>
+        </ol>
+      </section>
+
+      <section class="panel status-wide danger-zone" aria-labelledby="h-reset">
+        <div>
+          <h2 id="h-reset">Reset demo data</h2>
+          <p class="small muted">Wipes this device's data and reloads the original demo officers, stations and modules. Use it before each presentation.</p>
+        </div>
+        <button class="btn btn-danger" id="reset-data">Reset demo data</button>
+      </section>
+    </div>
+  </main>
+
+  <script type="module" src="js/pages/status.js"></script>
+</body>
+</html>

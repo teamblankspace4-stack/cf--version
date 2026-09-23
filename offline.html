@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; font-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0E2A47">
+  <title>Offline · Capacity Connect</title>
+  <link rel="icon" href="assets/icons/favicon-64.png">
+  <link rel="stylesheet" href="css/theme.css">
+  <style>
+    .offline-wrap { min-height: 100vh; display: grid; place-items: center; padding: var(--sp-5); }
+    .offline-card { max-width: 460px; }
+    .offline-card img { width: 56px; height: 56px; border-radius: 12px; margin-bottom: var(--sp-4); }
+  </style>
+</head>
+<body>
+  <main class="offline-wrap">
+    <div class="panel offline-card">
+      <img src="assets/icons/mark.svg" alt="">
+      <h1 style="font-size: var(--fs-xl)">This page isn't saved for offline use</h1>
+      <p class="muted">You're offline, and this page wasn't downloaded to this device yet. Pages you've already opened, and modules you've downloaded, still work.</p>
+      <div class="row">
+        <a class="btn btn-primary" href="index.html">Go to home</a>
+        <a class="btn btn-secondary" href="">Try again</a>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; font-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0F2A4A">
+  <meta name="description" content="Capacity Connect is the digital capacity-building and learning management portal for the Ministry of Earth Sciences and India Meteorological Department. Works offline at remote stations.">
+  <title>Capacity Connect — Digital Capacity Building Portal</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="assets/icons/favicon-64.png">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/landing.css">
+  <script src="js/early.js"></script>
+</head>
+<body class="landing">
+
+<header class="site-header" id="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html"><img src="assets/icons/mark.svg" alt="">Capacity Connect</a>
+    <nav class="header-nav" id="header-nav" aria-label="Sections">
+      <a href="#problem">Why it exists</a>
+      <a href="#features">Features</a>
+      <a href="#how">How it works</a>
+      <a href="#roles">Roles</a>
+    </nav>
+    <div class="header-actions">
+      <button class="btn btn-secondary" id="install-btn" hidden>Install app</button>
+      <a class="header-signin" href="login.html">Sign in</a>
+      <a class="btn btn-secondary btn-header" href="login.html#demo">Try the demo</a>
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-controls="header-nav" aria-expanded="false">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow up up-1">Ministry of Earth Sciences · India Meteorological Department</p>
+      <h1>Capacity building, mapped to the work itself.</h1>
+      <p class="lede">Capacity Connect replaces scattered registers and spreadsheets with one structured system — tracking every officer's growth from first module to certified expertise, whether they're at a desk or three days into a field posting with no signal.</p>
+      <div class="hero-actions up up-4">
+        <a class="btn btn-navy btn-lg" href="login.html#demo">Try the demo</a>
+        <a class="btn btn-secondary btn-lg" href="login.html">Sign in</a>
+      </div>
+      <p class="hero-note up up-5">
+        <a class="offline-status" id="offline-status" href="status.html"><span class="dot" aria-hidden="true"></span><span id="offline-status-text">Checking offline readiness…</span></a>
+        <span>Syncs automatically once a connection returns. Install it like an app on any device.</span>
+      </p>
+    </div>
+
+    <!-- A learning pathway, drawn from the demo's real modules -->
+    <figure class="pathway up up-3" aria-label="Example learning pathway">
+      <figcaption>A learning pathway, in progress</figcaption>
+      <svg class="path-svg" viewBox="0 0 520 330" fill="none" aria-hidden="true">
+        <path class="path-base" d="M44 292 C 120 292, 140 214, 196 208 S 290 150, 318 128 S 400 58, 468 48"/>
+        <path class="path-line" d="M44 292 C 120 292, 140 214, 196 208 S 290 150, 318 128 S 400 58, 468 48"/>
+        <circle class="node node-1" cx="44" cy="292" r="8"/>
+        <circle class="node node-2" cx="196" cy="208" r="8"/>
+        <circle class="node node-3 is-current" cx="318" cy="128" r="9"/>
+        <circle class="node node-4 is-goal" cx="468" cy="48" r="9"/>
+      </svg>
+      <ul class="path-labels">
+        <li class="pl-1"><b>AWS commissioning</b><span>Completed · certified</span></li>
+        <li class="pl-2"><b>Surface instruments</b><span>Completed · 4 units</span></li>
+        <li class="pl-3"><b>Doppler radar operations</b><span>In progress · 2 of 4</span></li>
+        <li class="pl-4"><b>Radar-ready officer</b><span>Station backup</span></li>
+      </ul>
+    </figure>
+  </div>
+</section>
+
+<!-- ================= FACTS ================= -->
+<section class="facts" aria-label="The prototype in numbers">
+  <div class="container facts-inner">
+    <div class="fact reveal"><b>0.7 MB</b><span>to download a lesson for offline use</span></div>
+    <div class="fact reveal"><b>25</b><span>stations modelled, from RMC to field observatory</span></div>
+    <div class="fact reveal"><b>4</b><span>operational skill areas, from officer feedback</span></div>
+    <div class="fact reveal"><b>0</b><span>network needed once a module is downloaded</span></div>
+  </div>
+</section>
+
+<!-- ================= UPDATES ================= -->
+<section class="section section-white" aria-labelledby="h-updates">
+  <div class="container">
+    <h2 id="h-updates" class="section-title reveal">What's new in the portal</h2>
+    <div class="cards-3" id="news-list">
+      <article class="news reveal">
+        <span class="tag tag-green">New content</span>
+        <h3>Doppler Weather Radar operations</h3>
+        <p>Open for nomination under Radar, with a practical task scored by a mentor.</p>
+      </article>
+      <article class="news reveal">
+        <span class="tag tag-amber">Now live</span>
+        <h3>QR-verified certificates</h3>
+        <p>Every certificate carries a digital signature any phone can check, even offline.</p>
+      </article>
+      <article class="news reveal">
+        <span class="tag tag-slate">Field update</span>
+        <h3>Download lessons for remote postings</h3>
+        <p>Save a module once and it plays, searches and tracks progress with no network.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROBLEM ================= -->
+<section class="section" id="problem" aria-labelledby="h-problem">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2 id="h-problem" class="section-title">Field training breaks down in three predictable places</h2>
+      <p class="section-sub">These are the gaps Capacity Connect was built to close, not generic training-portal features.</p>
+    </div>
+    <div class="cards-3 ruled">
+      <article class="reveal">
+        <h3>Records live outside the system</h3>
+        <p>Registers and spreadsheets sit disconnected from what officers actually do in the field, so nobody has one accurate picture of who's trained on what.</p>
+      </article>
+      <article class="reveal">
+        <h3>Gaps surface too late</h3>
+        <p>A skill gap usually shows up during an audit or an incident — long after there was time to close it through targeted training.</p>
+      </article>
+      <article class="reveal">
+        <h3>Connectivity stalls learning</h3>
+        <p>Field posts lose signal for days at a stretch, and training simply stops until the network comes back.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FEATURES ================= -->
+<section class="section section-white" id="features" aria-labelledby="h-features">
+  <div class="container">
+    <h2 id="h-features" class="section-title reveal">Built around how the work actually happens</h2>
+    <div class="feature-grid">
+      <article class="feature-hero reveal">
+        <p class="eyebrow">Field-first offline mode</p>
+        <h3>Training that doesn't stop when the network does</h3>
+        <p>Modules, quizzes, notes and progress all work offline. The moment a device reconnects, everything syncs automatically — no lost progress, no manual re-upload.</p>
+        <div class="sync-demo" aria-hidden="true">
+          <div class="sd-row"><span class="sd-pill" id="sd-pill">Synced</span><span class="sd-note" id="sd-note">Officer at Ratnagiri, network available</span></div>
+          <ol class="sd-queue" id="sd-queue"></ol>
+        </div>
+        <ul class="hero-points">
+          <li>Download a module once, about 1 MB</li>
+          <li>Find any topic in a lesson without a connection</li>
+          <li>Tested with the network fully switched off</li>
+        </ul>
+      </article>
+      <ul class="feature-list">
+        <li class="reveal">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5L21.5 20h-19z"/><path d="M12 10v4.5M12 17.2v.3"/></svg>
+          <div><h3>Skill SPOF alerts</h3><p>Flags when a station depends on one certified officer, or none — and enrols a backup in one step.</p></div>
+        </li>
+        <li class="reveal">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>
+          <div><h3>Anonymous confusion mapping</h3><p>Learners flag where a lesson lost them, without their name — trainers see only moments three or more officers flagged.</p></div>
+        </li>
+        <li class="reveal">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+          <div><h3>Progress locks</h3><p>The next unit opens only after the real work is done: watched lessons, a passed quiz, a reviewed practical.</p></div>
+        </li>
+        <li class="reveal">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+          <div><h3>Jump to the exact moment</h3><p>Ask "why do winds fold?" and the lesson opens at the second aliasing is explained.</p></div>
+        </li>
+        <li class="reveal">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M9 9h6M9 13h6M9 17h3"/></svg>
+          <div><h3>APAR-ready audit trail</h3><p>Every nomination, review and certificate is hash-chained, so any edit to the record is detectable.</p></div>
+        </li>
+        <li class="reveal">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.2"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.2"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.2"/><path d="M14 14h3v3h-3zM19 19h1.5v1.5H19z"/></svg>
+          <div><h3>QR-verified certificates</h3><p>A digital signature in every certificate that any phone can check on the spot.</p></div>
+        </li>
+        <li class="reveal">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 5V3M15 5V3"/></svg>
+          <div><h3>Succession capsules</h3><p>Station know-how is handed to the next officer when a post turns over. Train the post, not just the person.</p></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FLOW ================= -->
+<section class="section" id="how" aria-labelledby="h-how">
+  <div class="container">
+    <h2 id="h-how" class="section-title reveal">How training moves through the portal</h2>
+    <ol class="flow" id="flow">
+      <li class="reveal"><span class="flow-role">Station head</span><h3>Nominates officers</h3><p>Picks officers who need a skill, with a reason.</p></li>
+      <li class="reveal"><span class="flow-role">Training Division</span><h3>Approves the batch</h3><p>Assigns a trainer and a start date.</p></li>
+      <li class="reveal"><span class="flow-role">Trainee</span><h3>Learns, online or off</h3><p>Lessons, quizzes and a practical at the station.</p></li>
+      <li class="reveal"><span class="flow-role">Trainer / Mentor</span><h3>Reviews and scores</h3><p>Answers questions and scores practical work.</p></li>
+      <li class="reveal"><span class="flow-role">Record</span><h3>Certificate and APAR entry</h3><p>A verifiable record of real competency.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= ROLES / PRODUCT PREVIEW ================= -->
+<section class="section section-white" id="roles" aria-labelledby="h-roles">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2 id="h-roles" class="section-title">One portal, tuned to each role</h2>
+      <p class="section-sub">Sign-in and dashboards adapt to who you are and what you need to see. Previews of the dashboards each role opens after signing in.</p>
+    </div>
+    <div class="showcase reveal">
+      <div class="tabs-col">
+        <div class="role-tabs" role="tablist" aria-label="Roles">
+          <button class="role-tab" role="tab" id="tab-trainee" aria-controls="pv-trainee" aria-selected="true">
+            <b>Trainee</b><span>Field officers and scientists working through assigned training, online or off.</span>
+          </button>
+          <button class="role-tab" role="tab" id="tab-mentor" aria-controls="pv-mentor" aria-selected="false" tabindex="-1">
+            <b>Trainer / Mentor</b><span>Scores practical work, answers questions and acts on confusion signals.</span>
+          </button>
+          <button class="role-tab" role="tab" id="tab-admin" aria-controls="pv-admin" aria-selected="false" tabindex="-1">
+            <b>Administrator</b><span>Station heads nominate; the Training Division approves batches and closes skill gaps.</span>
+          </button>
+        </div>
+        <a class="btn btn-navy" href="login.html#demo">Open these dashboards</a>
+      </div>
+
+      <div class="preview" aria-live="polite">
+        <div class="pv-window">
+          <div class="pv-chrome"><span></span><span></span><span></span></div>
+          <div class="pv-body">
+            <div class="pv-side"><i></i><i class="on"></i><i></i><i></i></div>
+
+            <div class="pv-screen" id="pv-trainee" role="tabpanel" aria-labelledby="tab-trainee">
+              <div class="pv-top"><b>My training</b><em class="pv-sync">Synced</em></div>
+              <p class="pv-hello">Welcome back, Aditya.</p>
+              <div class="pv-stats"><div><span>Units completed</span><b>2 / 8</b></div><div><span>Certificates</span><b>1</b></div><div><span>In progress</span><b>2</b></div></div>
+              <div class="pv-spot"><small>Continue where you left off</small><b>Surface instruments: calibration</b><div class="pv-bar"><i style="width:50%"></i></div><span class="pv-btn">Resume AWS-201</span></div>
+            </div>
+
+            <div class="pv-screen" id="pv-mentor" role="tabpanel" aria-labelledby="tab-mentor" hidden>
+              <div class="pv-top"><b>Mentor dashboard</b><em class="pv-sync">Synced</em></div>
+              <p class="pv-hello">Welcome back, Anil.</p>
+              <div class="pv-stats"><div><span>To review</span><b>1</b></div><div><span>Questions</span><b>1</b></div><div><span>Officers</span><b>3</b></div></div>
+              <div class="pv-spot is-warn"><small>Where your batch is getting stuck</small><b>Radial velocity and aliasing at 2:10</b><span class="pv-meta">Flagged anonymously by 5 officers</span><span class="pv-btn">Post a clarification</span></div>
+            </div>
+
+            <div class="pv-screen" id="pv-admin" role="tabpanel" aria-labelledby="tab-admin" hidden>
+              <div class="pv-top"><b>Nominations</b><em class="pv-sync">Synced</em></div>
+              <p class="pv-hello">All regions.</p>
+              <div class="pv-stats"><div><span>Waiting</span><b>8</b></div><div><span>Batches</span><b>2</b></div><div><span>In training</span><b>6</b></div></div>
+              <div class="pv-spot is-warn"><small>Skill gap alert</small><b>Kochi Radar Station has no radar-certified officer</b><span class="pv-meta">Assign backup training in one step</span><span class="pv-btn">Review skill coverage</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FIELD OFFICERS ================= -->
+<section class="section" aria-labelledby="h-field">
+  <div class="container field-grid">
+    <div class="reveal">
+      <h2 id="h-field" class="section-title">Shaped by field officers</h2>
+      <p class="section-sub">We spoke with officers working at IMD stations. Their feedback changed the design in five concrete ways.</p>
+    </div>
+    <ol class="field-list">
+      <li class="reveal">Nobody enrols in training unchecked. Station heads nominate, officers can request a course, and the Training Division approves every batch.</li>
+      <li class="reveal">Modules follow real field duties: AWS and surface instruments, Radar, Satellite data analysis, and Aviation.</li>
+      <li class="reveal">Administrators filter every view by Regional Met Centre, Met Centre and field observatory.</li>
+      <li class="reveal">Pages stay light enough for low-bandwidth coastal and remote stations.</li>
+      <li class="reveal">Training is a conversation, so mentor discussion sits right beside each lesson.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="cta" aria-labelledby="h-cta">
+  <div class="container cta-inner reveal">
+    <h2 id="h-cta">Ready to see how your division's training actually looks?</h2>
+    <div class="cta-actions">
+      <a class="btn btn-primary btn-lg" href="login.html#demo">Try the demo</a>
+      <a class="btn btn-on-dark btn-lg" href="login.html">Sign in</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div>
+      <a class="brand brand-light" href="index.html"><img src="assets/icons/mark.svg" alt="">Capacity Connect</a>
+      <p>A digital capacity-building and learning management portal, built for problem statement SIH26075 (Ministry of Earth Sciences / India Meteorological Department).</p>
+      <p class="disclaimer">Student prototype built for Smart India Hackathon 2026 by Team Blankspace, SGGS Nanded. It is not an official website of the India Meteorological Department or the Ministry of Earth Sciences, and it is not connected to any government system. All officers, stations and records shown are demo data.</p>
+    </div>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="#problem">Why it exists</a>
+      <a href="#features">Features</a>
+      <a href="#roles">Roles</a>
+      <a href="verify.html">Verify a certificate</a>
+      <a href="status.html">System check</a>
+      <a href="login.html">Sign in</a>
+    </nav>
+  </div>
+</footer>
+
+<script type="module" src="js/pages/landing.js"></script>
+</body>
+</html>

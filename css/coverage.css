@@ -1,0 +1,30 @@
+/* Skill coverage */
+.filters { display: flex; gap: var(--sp-4); flex-wrap: wrap; margin-bottom: var(--sp-5); }
+.filters .field { margin: 0; min-width: 240px; }
+
+.risk-summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: var(--sp-4); margin-bottom: var(--sp-5); }
+.risk-card { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--line); border-radius: var(--r-md); padding: var(--sp-4); }
+.risk-card b { display: block; font-size: var(--fs-2xl); line-height: 1.1; font-variant-numeric: tabular-nums; }
+.risk-card span { font-size: var(--fs-sm); color: var(--ink-muted); }
+.risk-card.is-critical { border-left-color: var(--danger); }
+.risk-card.is-single { border-left-color: var(--warn); }
+.risk-card.is-ok { border-left-color: var(--ok); }
+
+.alert-list { list-style: none; margin: 0; padding: 0; }
+.alert-list > li { padding: var(--sp-4) 0; border-top: 1px solid var(--line); display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--sp-3) var(--sp-5); align-items: center; }
+.alert-list > li:first-child { border-top: 0; padding-top: 0; }
+.alert-head { display: flex; align-items: baseline; gap: var(--sp-2) var(--sp-3); flex-wrap: wrap; margin-bottom: var(--sp-1); }
+.alert-head b { font-size: var(--fs-md); }
+.alert-head .muted { font-size: var(--fs-sm); }
+.alert-detail { margin: 0; font-size: var(--fs-sm); color: var(--ink-muted); max-width: 76ch; }
+.alert-detail .name { color: var(--ink); font-weight: 500; }
+.alert-actions { display: flex; gap: var(--sp-2); align-items: center; flex-wrap: wrap; }
+
+.cov-table td.skill-cell { font-weight: 500; }
+.holders { font-size: var(--fs-xs); color: var(--ink-muted); white-space: normal; max-width: 34ch; }
+.backup-effect { font-size: var(--fs-sm); background: var(--teal-100); border-radius: var(--r-sm); padding: var(--sp-3); margin: 0 0 var(--sp-3); }
+#backup-error:empty { display: none; }
+
+@media (max-width: 720px) {
+  .alert-list > li { grid-template-columns: 1fr; }
+}

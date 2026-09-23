@@ -1,0 +1,67 @@
+/* Certificate page and printable sheet */
+.cert-actions { display: flex; gap: var(--sp-2); flex-wrap: wrap; margin-bottom: var(--sp-4); }
+
+.cert-sheet { position: relative; background: #fff; border-radius: 14px; overflow: hidden;
+  box-shadow: 0 1px 2px rgba(14,42,71,0.05), 0 18px 48px rgba(14,42,71,0.12); border: 1px solid #DCE4EC; }
+.cert-band { position: relative; background: linear-gradient(120deg, var(--navy-900), var(--navy-800)); color: #fff;
+  padding: var(--sp-5) clamp(1.5rem, 5vw, 3.5rem); display: flex; align-items: center; justify-content: space-between; gap: var(--sp-4); overflow: hidden; }
+.cert-band::after { content: ""; position: absolute; right: -80px; top: -120px; width: 320px; height: 320px; border-radius: 50%;
+  border: 1.5px solid rgba(31,163,163,0.35); box-shadow: 0 0 0 50px rgba(31,163,163,0.05), 0 0 0 100px rgba(31,163,163,0.04); }
+.cert-brand { display: flex; align-items: center; gap: var(--sp-3); position: relative; z-index: 1; }
+.cert-brand img { width: 44px; height: 44px; border-radius: 10px; }
+.cert-brand b { display: block; font-size: var(--fs-lg); }
+.cert-brand span { font-size: var(--fs-xs); color: #A9BCCF; letter-spacing: 0.04em; }
+.cert-no { position: relative; z-index: 1; text-align: right; font-size: var(--fs-xs); color: #A9BCCF; }
+.cert-no b { display: block; font-size: var(--fs-md); color: #fff; font-variant-numeric: tabular-nums; letter-spacing: 0.02em; }
+
+.cert-body { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: var(--sp-6); padding: clamp(1.75rem, 4vw, 3rem) clamp(1.5rem, 5vw, 3.5rem);
+  background:
+    radial-gradient(60% 80% at 100% 100%, rgba(31,163,163,0.06), transparent 60%),
+    linear-gradient(#fff, #fff); }
+.cert-kicker { font-size: var(--fs-xs); font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal-600); margin-bottom: var(--sp-3); }
+.cert-title { font-size: clamp(1.6rem, 3.4vw, 2.3rem); margin-bottom: var(--sp-5); letter-spacing: -0.02em; }
+.cert-small { font-size: var(--fs-sm); color: var(--ink-muted); margin: 0 0 var(--sp-1); }
+.cert-name { font-size: clamp(1.8rem, 4.2vw, 2.8rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 0 0 var(--sp-1);
+  padding-bottom: var(--sp-2); border-bottom: 2px solid var(--teal-600); display: inline-block; }
+.cert-who { font-size: var(--fs-sm); color: var(--ink-muted); margin: var(--sp-2) 0 var(--sp-5); }
+.cert-module { font-size: var(--fs-xl); font-weight: 600; margin: 0 0 var(--sp-5); }
+.cert-module span { display: block; font-size: var(--fs-sm); font-weight: 600; color: var(--teal-600); }
+.cert-facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--sp-4); margin: 0; padding-top: var(--sp-4); border-top: 1px solid var(--line); }
+.cert-facts dt { font-size: var(--fs-xs); color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.06em; }
+.cert-facts dd { margin: 2px 0 0; font-size: var(--fs-lg); font-weight: 700; font-variant-numeric: tabular-nums; }
+
+.cert-qr { display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--sp-2); align-self: end; }
+/* 4-module quiet zone is built into the SVG; crisp edges so scanners see clean modules */
+/* 65 modules + quiet zone at 4px each: the smallest size scanners read reliably */
+.cert-qr .qr { width: 300px; max-width: 100%; aspect-ratio: 1; height: auto; padding: 4px; background: #fff; border: 1px solid var(--line); border-radius: 12px; }
+.cert-qr .qr svg { width: 100%; height: 100%; display: block; shape-rendering: crispEdges; }
+.cert-qr b { font-size: var(--fs-sm); }
+.cert-qr span { font-size: var(--fs-xs); color: var(--ink-muted); max-width: 22ch; }
+
+.cert-foot { display: flex; justify-content: space-between; align-items: flex-end; gap: var(--sp-4); flex-wrap: wrap;
+  padding: var(--sp-4) clamp(1.5rem, 5vw, 3.5rem) var(--sp-5); border-top: 1px dashed var(--line); font-size: var(--fs-xs); color: var(--ink-muted); }
+.cert-sign b { display: block; font-size: var(--fs-sm); color: var(--ink); }
+.cert-seal { display: inline-flex; align-items: center; gap: 6px; color: var(--ok); font-weight: 600; }
+
+.proto-note { font-size: var(--fs-xs); color: var(--ink-muted); margin-top: var(--sp-3); }
+
+@media (max-width: 760px) {
+  .cert-body { grid-template-columns: 1fr; }
+  .cert-qr { align-self: start; align-items: flex-start; text-align: left; }
+  .cert-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cert-band { flex-direction: column; align-items: flex-start; }
+  .cert-no { text-align: left; }
+}
+
+/* Print: just the certificate, landscape */
+@page { size: A4 landscape; margin: 10mm; }
+@media print {
+  body.has-sidebar { padding-left: 0 !important; }
+  .cert-body { grid-template-columns: minmax(0, 1fr) 54mm; }
+  .cert-qr .qr { width: 50mm; border: 0; padding: 0; }
+  body { background: #fff !important; }
+  .app-header, .topbar, .sidebar, .scrim, .no-print, .cert-actions, .proto-note, .banner-stack, .toast-stack { display: none !important; }
+  main.page { padding: 0 !important; max-width: none !important; }
+  .cert-sheet { box-shadow: none; border: 1.5px solid var(--navy-800); border-radius: 0; }
+  .cert-band, .cert-body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; font-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0F2A4A">
+  <meta name="description" content="Verify a Capacity Connect training certificate.">
+  <title>Verify a certificate · Capacity Connect</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="assets/icons/favicon-64.png">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/verify.css">
+</head>
+<body class="verify-body">
+
+  <header class="app-header">
+    <div class="container">
+      <a class="brand" href="index.html"><img src="assets/icons/mark.svg" alt="">Capacity Connect</a>
+    </div>
+  </header>
+
+  <main class="container verify-main">
+    <div class="verify-head">
+      <h1>Certificate verification</h1>
+      <p>Checks the Training Division's digital signature on this device. No login and no network needed.</p>
+    </div>
+    <div id="result" aria-live="polite"></div>
+
+    <section class="verify-card paste-card">
+      <h2>Check another certificate</h2>
+      <p class="muted small">Scan its QR code with your phone camera, or paste the verification link here.</p>
+      <form id="paste-form" class="paste-row">
+        <label class="visually-hidden" for="paste-input">Verification link</label>
+        <input class="input" id="paste-input" placeholder="https://…/verify.html#p=…&s=…" autocomplete="off">
+        <button class="btn btn-primary" type="submit">Verify</button>
+      </form>
+    </section>
+    <p class="verify-disclaimer">Student prototype built for Smart India Hackathon 2026 by Team Blankspace, SGGS Nanded. It is not an official website of the India Meteorological Department or the Ministry of Earth Sciences, and it is not connected to any government system. All officers, stations and records shown are demo data.</p>
+  </main>
+
+  <script type="module" src="js/pages/verify.js"></script>
+</body>
+</html>

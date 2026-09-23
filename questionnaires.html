@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; font-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0F2A4A">
+  <title>Assessments — Capacity Connect</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="assets/icons/favicon-64.png">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/portal.css">
+</head>
+<body>
+  <header id="app-header"></header>
+  <main class="container page">
+    <div class="page-head">
+      <h1 id="page-title">Assessments</h1>
+      <p id="page-sub"></p>
+    </div>
+    <div id="view" aria-live="polite"></div>
+  </main>
+  <dialog class="modal" id="qn" aria-labelledby="qn-title">
+    <form id="qn-form">
+      <div class="modal-body">
+        <h2 id="qn-title">New questionnaire</h2>
+        <div class="grid-2">
+          <div class="field"><label for="qn-batch">Batch</label><select class="input" id="qn-batch"></select></div>
+          <div class="field"><label for="qn-deadline">Deadline</label><input class="input" type="date" id="qn-deadline"></div>
+        </div>
+        <div class="field"><label for="qn-title-input">Title</label><input class="input" id="qn-title-input" placeholder="e.g. Week 3 check: reflectivity and bright band"></div>
+        <div class="grid-2">
+          <div class="field"><label for="qn-pass">Pass mark (%)</label><input class="input" type="number" id="qn-pass" min="10" max="100" value="60"></div>
+          <div class="field"><label for="qn-instr">Instructions</label><input class="input" id="qn-instr" value="One attempt. Answer every question before the deadline."></div>
+        </div>
+        <div id="qn-questions"></div>
+        <button type="button" class="btn btn-secondary btn-sm" id="qn-add">Add a question</button>
+        <p class="field-error" id="qn-error" role="alert"></p>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" data-close>Cancel</button>
+        <button type="submit" class="btn btn-primary" id="qn-submit">Publish to batch</button>
+      </div>
+    </form>
+  </dialog>
+  <script type="module" src="js/pages/questionnaires.js"></script>
+</body>
+</html>

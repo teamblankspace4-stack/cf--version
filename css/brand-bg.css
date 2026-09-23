@@ -1,0 +1,40 @@
+/* =========================================================
+   brand-bg.css — the navy "weather scope" backdrop shared by
+   the landing, sign-in and certificate verification pages:
+   fine grid, isobar rings and a soft radar sweep.
+   Usage: <div class="brand-bg" aria-hidden="true">…</div>
+   inside any position:relative container.
+   ========================================================= */
+
+.brand-surface { position: relative; background: var(--navy-900); color: #fff; overflow: hidden; isolation: isolate; }
+.brand-bg { position: absolute; inset: 0; overflow: hidden; z-index: -1; }
+.brand-bg::before { content: ""; position: absolute; inset: -20%; background:
+  radial-gradient(60% 50% at 78% 38%, rgba(15,139,141,0.30), transparent 70%),
+  radial-gradient(50% 40% at 10% 0%, rgba(36,70,107,0.55), transparent 70%); }
+
+.brand-bg .grid-lines { position: absolute; inset: 0; opacity: 0.4;
+  background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 64px 64px; mask-image: radial-gradient(70% 60% at 50% 40%, #000, transparent 75%); }
+
+.brand-bg .rings { position: absolute; right: -6%; top: 50%; width: min(880px, 78vw); transform: translateY(-50%); opacity: 0.5; }
+.brand-bg .ring { transform-origin: 450px 450px; animation: bgRingPulse 7s ease-in-out infinite; }
+.brand-bg .r2 { animation-delay: 0.5s; } .brand-bg .r3 { animation-delay: 1s; } .brand-bg .r4 { animation-delay: 1.5s; } .brand-bg .r5 { animation-delay: 2s; }
+@keyframes bgRingPulse { 0%, 100% { opacity: 0.45; transform: scale(1); } 50% { opacity: 0.85; transform: scale(1.02); } }
+
+.brand-bg .sweep { position: absolute; right: -6%; top: 50%; width: min(880px, 78vw); aspect-ratio: 1; transform: translateY(-50%); border-radius: 50%;
+  background: conic-gradient(from 0deg, rgba(31,163,163,0.24), rgba(31,163,163,0.05) 28%, transparent 42%);
+  mask-image: radial-gradient(circle, #000 34%, rgba(0,0,0,0.30) 54%, transparent 66%); opacity: 0.8;
+  animation: bgSweep 12s linear infinite; }
+@keyframes bgSweep { to { transform: translateY(-50%) rotate(360deg); } }
+
+/* Centred variant for narrow panels (sign-in side, verify page) */
+.brand-bg.is-centred .rings, .brand-bg.is-centred .sweep { right: auto; left: 50%; top: 58%; width: min(760px, 140%); transform: translate(-50%, -50%); }
+.brand-bg.is-centred .sweep { animation-name: bgSweepCentred; }
+@keyframes bgSweepCentred { to { transform: translate(-50%, -50%) rotate(360deg); } }
+
+@media (max-width: 640px) {
+  .brand-bg .rings, .brand-bg .sweep { right: -35%; opacity: 0.32; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .brand-bg .ring, .brand-bg .sweep { animation: none !important; }
+}

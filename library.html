@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; font-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0F2A4A">
+  <title>Library — Capacity Connect</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="assets/icons/favicon-64.png">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/portal.css">
+</head>
+<body>
+  <header id="app-header"></header>
+  <main class="container page">
+    <div class="page-head">
+      <h1 id="page-title">Trainer library</h1>
+      <p id="page-sub">Recorded lectures, presentations and study materials from your trainers. Files open offline once they're on this device.</p>
+    </div>
+    <div id="view" aria-live="polite"></div>
+  </main>
+  <dialog class="modal" id="up" aria-labelledby="up-title">
+    <form id="up-form">
+      <div class="modal-body">
+        <h2 id="up-title">Upload to the library</h2>
+        <div class="field"><label for="up-file">File</label><input class="input" type="file" id="up-file" accept=".pdf,.ppt,.pptx,.doc,.docx,.xls,.xlsx,.mp4,.webm,.mp3,.m4a,.png,.jpg,.jpeg,.txt">
+          <span class="field-hint">PDF, PowerPoint, Word, Excel, video, audio or images, up to 25 MB.</span></div>
+        <div class="field"><label for="up-name">Title</label><input class="input" id="up-name"></div>
+        <div class="grid-2">
+          <div class="field"><label for="up-kind">Type</label><select class="input" id="up-kind"></select></div>
+          <div class="field"><label for="up-module">Module</label><select class="input" id="up-module"></select></div>
+        </div>
+        <div class="field"><label for="up-desc">Description</label><textarea class="input" id="up-desc" rows="2"></textarea></div>
+        <p class="field-error" id="up-error" role="alert"></p>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" data-close>Cancel</button>
+        <button type="submit" class="btn btn-primary" id="up-submit">Upload</button>
+      </div>
+    </form>
+  </dialog>
+  <script type="module" src="js/pages/library.js"></script>
+</body>
+</html>

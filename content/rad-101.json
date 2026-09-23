@@ -1,0 +1,254 @@
+{
+ "code": "RAD-101",
+ "units": [
+  {
+   "order": 1,
+   "type": "video",
+   "title": "RAD-101: core lesson",
+   "video": "assets/media/rad-101-lesson.mp4",
+   "poster": "assets/media/rad-101-poster.jpg",
+   "duration": 214,
+   "chapters": [
+    {
+     "start": 0,
+     "end": 35,
+     "title": "What a Doppler Weather Radar measures",
+     "points": [
+      "Reflectivity: how much energy comes back (dBZ)",
+      "Radial velocity: motion toward or away from the radar",
+      "Spectrum width: turbulence within the beam"
+     ],
+     "keywords": [
+      "dwr",
+      "reflectivity",
+      "velocity",
+      "doppler",
+      "s-band",
+      "c-band",
+      "pulse",
+      "echo",
+      "basics"
+     ],
+     "text": "A Doppler Weather Radar sends out short pulses of microwave energy and listens for the echo. The strength of the echo gives reflectivity, measured in dBZ, which tells us how much precipitation is in the beam. The shift in the returned signal gives radial velocity, the motion of targets toward or away from the radar. IMD operates both S-band and C-band radars. S-band suffers less attenuation in very heavy rain, which is why it suits cyclone-prone coasts."
+    },
+    {
+     "start": 35,
+     "end": 70,
+     "title": "The volume scan strategy",
+     "points": [
+      "Antenna turns 360° at a series of elevation angles",
+      "Lowest elevations see closest to the ground",
+      "One full volume every few minutes"
+     ],
+     "keywords": [
+      "scan",
+      "volume",
+      "elevation",
+      "angle",
+      "antenna",
+      "sweep",
+      "strategy",
+      "vcp",
+      "beam",
+      "blockage"
+     ],
+     "text": "In a volume scan, the antenna rotates through a full circle at one elevation angle, then steps up to the next angle and repeats. The lowest elevations matter most, because they see rain closest to the ground, but they are also the ones blocked by hills and buildings. One complete volume takes a few minutes, and the station SOP fixes which scan strategy to run in normal weather and which to switch to during severe weather."
+    },
+    {
+     "start": 70,
+     "end": 99,
+     "title": "Pre-shift checks",
+     "points": [
+      "Transmitter, antenna and servo status",
+      "Open alarms and the previous shift's notes",
+      "Data reaching the central server on time"
+     ],
+     "keywords": [
+      "check",
+      "shift",
+      "start",
+      "status",
+      "transmitter",
+      "server",
+      "time",
+      "sync",
+      "logbook",
+      "before"
+     ],
+     "text": "Before taking over a shift, read the previous shift's notes in the logbook first. Then check transmitter status, antenna and servo health, and the list of open alarms. Confirm that the latest volume has reached the central server and that the radar clock is synchronised, because products with the wrong time are worse than no products. Record anything unusual before you start work."
+    },
+    {
+     "start": 99,
+     "end": 130,
+     "title": "Reading reflectivity",
+     "points": [
+      "Around 20 dBZ: light rain",
+      "40 dBZ and above: moderate to heavy rain",
+      "50 dBZ and above: very heavy rain, possible hail"
+     ],
+     "keywords": [
+      "reflectivity",
+      "dbz",
+      "rain",
+      "intensity",
+      "hail",
+      "heavy",
+      "bright",
+      "band",
+      "melting",
+      "colour"
+     ],
+     "text": "Reflectivity is shown in colours by dBZ. Values around 20 usually mean light rain, 40 and above indicate moderate to heavy rain, and 50 and above suggest very heavy rain and possibly hail. Watch for the bright band, a ring of enhanced reflectivity where snow melts into rain. It makes rain look heavier than it is, so do not read it as a real intensity peak."
+    },
+    {
+     "start": 130,
+     "end": 162,
+     "title": "Reading radial velocity and aliasing",
+     "points": [
+      "Colours show motion toward and away from the radar",
+      "Nyquist velocity sets the largest speed measured cleanly",
+      "Aliasing: a sudden jump from strong inbound to strong outbound"
+     ],
+     "keywords": [
+      "velocity",
+      "radial",
+      "aliasing",
+      "folding",
+      "nyquist",
+      "inbound",
+      "outbound",
+      "wind",
+      "doppler",
+      "unfold"
+     ],
+     "text": "Velocity products colour motion toward the radar differently from motion away from it. Every radar has a Nyquist velocity, the largest speed it can measure without ambiguity. When winds exceed it, the value folds over, and you see a sudden jump from strong inbound to strong outbound next to each other. That is aliasing, not a real wind shift. Check neighbouring gates and use the unfolded product before drawing conclusions."
+    },
+    {
+     "start": 162,
+     "end": 190,
+     "title": "Handling routine alarms",
+     "points": [
+      "Sort alarms: information or service-affecting",
+      "Follow the station SOP step by step",
+      "Log the time and escalate to engineering"
+     ],
+     "keywords": [
+      "alarm",
+      "fault",
+      "error",
+      "warning",
+      "escalate",
+      "engineering",
+      "sop",
+      "restart",
+      "failure"
+     ],
+     "text": "Alarms fall into two groups: information messages that need a log entry, and faults that affect the service. For a service-affecting alarm, follow the station SOP step by step, note the time it started, and escalate to the engineering team. Never power-cycle the transmitter outside the documented procedure. A wrong restart can damage hardware and lose hours of data."
+    },
+    {
+     "start": 190,
+     "end": 214,
+     "title": "Handing over a shift safely",
+     "points": [
+      "Radar status and open alarms",
+      "Current weather and products issued",
+      "Pending tasks, signed by both officers"
+     ],
+     "keywords": [
+      "handover",
+      "shift",
+      "log",
+      "logbook",
+      "sign",
+      "note",
+      "pending",
+      "end",
+      "relieve"
+     ],
+     "text": "A safe handover covers the radar status, any open alarms, the current weather situation, the products already issued, and tasks still pending. Write it in the logbook and walk the incoming officer through it on screen. Both officers sign. A handover note that only says all normal is not a handover."
+    }
+   ]
+  },
+  {
+   "order": 2,
+   "type": "reading",
+   "title": "Field reference notes: DWR shift checklist",
+   "html": "<h3>Start of shift</h3><ul><li>Read the previous shift's logbook entries and open alarms.</li><li>Check transmitter, antenna and servo status on the control screen.</li><li>Confirm the latest volume scan reached the central server on time.</li><li>Confirm the radar clock is synchronised.</li></ul><h3>During the shift</h3><ul><li>Review reflectivity and velocity products after every volume.</li><li>Treat sudden inbound/outbound pairs as possible aliasing until checked.</li><li>Log every alarm with its start time, action taken, and whether it cleared.</li><li>Switch to the severe-weather scan strategy when the SOP criteria are met.</li></ul><h3>Reflectivity guide</h3><table><thead><tr><th>dBZ</th><th>Usual meaning</th></tr></thead><tbody><tr><td>About 20</td><td>Light rain</td></tr><tr><td>40 and above</td><td>Moderate to heavy rain</td></tr><tr><td>50 and above</td><td>Very heavy rain, possible hail</td></tr></tbody></table><p>Always check a strong ring of reflectivity against the melting level before treating it as heavy rain. It may be the bright band.</p><h3>End of shift</h3><ul><li>Write the handover: status, open alarms, weather situation, products issued, pending tasks.</li><li>Walk the incoming officer through it and both sign the logbook.</li></ul>"
+  },
+  {
+   "order": 3,
+   "type": "quiz",
+   "title": "Check your understanding",
+   "passMark": 70,
+   "questions": [
+    {
+     "q": "Which radar product shows motion toward or away from the radar?",
+     "options": [
+      "Reflectivity",
+      "Radial velocity",
+      "Spectrum width",
+      "Echo top height"
+     ],
+     "answer": 1,
+     "explain": "Radial velocity measures the component of motion along the beam, toward or away from the radar."
+    },
+    {
+     "q": "On the velocity display you see strong inbound values right next to strong outbound values. What should you suspect first?",
+     "options": [
+      "A tornado",
+      "A calibration fault",
+      "Velocity aliasing",
+      "Bright band"
+     ],
+     "answer": 2,
+     "explain": "When speeds exceed the Nyquist velocity they fold over. Check neighbouring gates and the unfolded product first."
+    },
+    {
+     "q": "Why are the lowest elevation angles in a volume scan the most important?",
+     "options": [
+      "They are the fastest to scan",
+      "They see precipitation closest to the ground",
+      "They never suffer blockage",
+      "They measure hail directly"
+     ],
+     "answer": 1,
+     "explain": "Low elevations sample near the surface, where rain affects people, though they are also most prone to blockage."
+    },
+    {
+     "q": "A service-affecting alarm appears on the transmitter. What is the correct first action?",
+     "options": [
+      "Power-cycle the transmitter immediately",
+      "Ignore it until the next shift",
+      "Follow the station SOP, log the time and escalate",
+      "Switch off the radar"
+     ],
+     "answer": 2,
+     "explain": "Follow the documented procedure, record when it started and escalate. Unplanned restarts can damage hardware."
+    },
+    {
+     "q": "Reflectivity values of 50 dBZ and above usually indicate:",
+     "options": [
+      "Drizzle",
+      "Light rain",
+      "Very heavy rain and possible hail",
+      "Clear air echoes"
+     ],
+     "answer": 2,
+     "explain": "50 dBZ and above suggests very heavy rain and possibly hail."
+    }
+   ]
+  },
+  {
+   "order": 4,
+   "type": "practical",
+   "title": "Practical task: log one volume scan and write a handover",
+   "task": "During one of your shifts, capture the reflectivity and velocity products from a single volume scan at your station, identify one feature in them, and write the handover note you would give the next officer.",
+   "steps": [
+    "Photograph or screenshot the lowest-elevation reflectivity and velocity products from the same volume.",
+    "Identify one feature: an area of heavy rain, bright band, blockage, or aliasing. Say how you recognised it.",
+    "Write a complete handover note: radar status, open alarms, weather situation, products issued, pending tasks."
+   ],
+   "evidence": "Upload a photo of the products or your logbook page, and type your findings and handover note."
+  }
+ ]
+}

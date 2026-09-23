@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; font-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0F2A4A">
+  <title>Users & roles — Capacity Connect</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="assets/icons/favicon-64.png">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/portal.css">
+</head>
+<body>
+  <header id="app-header"></header>
+  <main class="container page">
+    <div class="page-head">
+      <h1 id="page-title">Users and roles</h1>
+      <p id="page-sub">Approve account requests, set each officer's role, and deactivate accounts that should no longer sign in.</p>
+    </div>
+    <div id="view" aria-live="polite"></div>
+  </main>
+  <dialog class="modal" id="appr" aria-labelledby="appr-title">
+    <form id="appr-form">
+      <div class="modal-body">
+        <h2 id="appr-title">Approve account</h2>
+        <p class="muted small" id="appr-who"></p>
+        <div class="field"><label for="appr-role">Role</label><select class="input" id="appr-role">
+          <option value="trainee">Trainee</option><option value="trainer">Trainer / Mentor</option><option value="admin">Administrator</option></select></div>
+        <div class="field" id="appr-scope-field" hidden><label for="appr-scope">Administrator scope</label><select class="input" id="appr-scope">
+          <option value="station">Station head (own region)</option><option value="division">Training Division (all regions)</option></select></div>
+        <p class="field-error" id="appr-error" role="alert"></p>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" data-close>Cancel</button>
+        <button type="submit" class="btn btn-primary" id="appr-submit">Approve</button>
+      </div>
+    </form>
+  </dialog>
+  <dialog class="modal" id="rej" aria-labelledby="rej-title">
+    <form id="rej-form">
+      <div class="modal-body">
+        <h2 id="rej-title">Reject account request</h2>
+        <p class="muted small" id="rej-who"></p>
+        <div class="field"><label for="rej-note">Reason the officer will see</label><textarea class="input" id="rej-note" rows="2"></textarea></div>
+        <p class="field-error" id="rej-error" role="alert"></p>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" data-close>Cancel</button>
+        <button type="submit" class="btn btn-primary" id="rej-submit">Reject</button>
+      </div>
+    </form>
+  </dialog>
+  <dialog class="modal" id="role" aria-labelledby="role-title">
+    <form id="role-form">
+      <div class="modal-body">
+        <h2 id="role-title">Change role</h2>
+        <p class="muted small" id="role-who"></p>
+        <div class="field"><label for="role-role">Role</label><select class="input" id="role-role">
+          <option value="trainee">Trainee</option><option value="trainer">Trainer / Mentor</option><option value="admin">Administrator</option></select></div>
+        <div class="field" id="role-scope-field" hidden><label for="role-scope">Administrator scope</label><select class="input" id="role-scope">
+          <option value="station">Station head (own region)</option><option value="division">Training Division (all regions)</option></select></div>
+        <p class="field-error" id="role-error" role="alert"></p>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" data-close>Cancel</button>
+        <button type="submit" class="btn btn-primary" id="role-submit">Save role</button>
+      </div>
+    </form>
+  </dialog>
+  <script type="module" src="js/pages/users.js"></script>
+</body>
+</html>

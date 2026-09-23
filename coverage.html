@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; font-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0E2A47">
+  <title>Skill coverage · Capacity Connect</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="assets/icons/favicon-64.png">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/admin.css">
+  <link rel="stylesheet" href="css/coverage.css">
+</head>
+<body>
+  <header id="app-header" class="app-header"></header>
+
+  <main class="container page">
+    <div class="page-head">
+      <h1>Skill coverage</h1>
+      <p id="scope-line">Which stations can still do the job if one officer moves.</p>
+    </div>
+
+    <div class="filters" data-band-end>
+      <div class="field">
+        <label for="station-filter">Region or station</label>
+        <select class="input" id="station-filter"></select>
+      </div>
+      <div class="field">
+        <label for="risk-filter">Show</label>
+        <select class="input" id="risk-filter">
+          <option value="risk">Alerts only</option>
+          <option value="all">Everything</option>
+          <option value="critical">No cover</option>
+          <option value="single">Single point of failure</option>
+          <option value="ok">Covered</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="view" aria-live="polite"></div>
+  </main>
+
+  <dialog class="modal" id="backup-dialog" aria-labelledby="backup-title">
+    <form id="backup-form">
+      <div class="modal-body">
+        <h2 id="backup-title">Assign backup training</h2>
+        <p class="muted small" id="backup-where"></p>
+        <div class="field">
+          <label for="backup-officer">Officer to train</label>
+          <select class="input" id="backup-officer"></select>
+          <span class="field-hint">Officers at this station come first, then the parent station.</span>
+        </div>
+        <div class="field">
+          <label for="backup-module">Module</label>
+          <select class="input" id="backup-module"></select>
+        </div>
+        <p class="backup-effect" id="backup-effect"></p>
+        <p class="field-error" id="backup-error" role="alert"></p>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" data-close>Cancel</button>
+        <button type="submit" class="btn btn-primary" id="backup-submit">Assign training</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script type="module" src="js/pages/coverage.js"></script>
+</body>
+</html>

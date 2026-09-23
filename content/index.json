@@ -1,0 +1,26 @@
+{
+ "RAD-101": {
+  "file": "content/rad-101.json",
+  "media": [
+   "assets/media/rad-101-lesson.mp4",
+   "assets/media/rad-101-poster.jpg"
+  ],
+  "videoBytes": 752866
+ },
+ "AWS-201": {
+  "file": "content/aws-201.json",
+  "media": [
+   "assets/media/aws-201-lesson.mp4",
+   "assets/media/aws-201-poster.jpg"
+  ],
+  "videoBytes": 742655
+ },
+ "SAT-101": {
+  "file": "content/sat-101.json",
+  "media": [
+   "assets/media/sat-101-lesson.mp4",
+   "assets/media/sat-101-poster.jpg"
+  ],
+  "videoBytes": 747462
+ }
+}

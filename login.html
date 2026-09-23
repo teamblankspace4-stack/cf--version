@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; font-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0F2A4A">
+  <meta name="description" content="Sign in to Capacity Connect, the IMD training portal. Works offline once you have signed in on a device.">
+  <title>Sign in — Capacity Connect</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="assets/icons/favicon-64.png">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body class="login-page">
+  <div class="login-layout">
+    <aside class="login-side">
+      <a class="brand brand-light" href="index.html"><img src="assets/icons/mark.svg" alt="">Capacity Connect</a>
+      <div class="side-copy">
+        <h1 id="side-title">Every officer's training, in one record.</h1>
+        <p id="side-sub">Sign in with your role to pick up training exactly where you left it — online or off.</p>
+      </div>
+      <p class="login-foot">For problem statement SIH26075 · Ministry of Earth Sciences · India Meteorological Department</p>
+      <p class="login-foot disclaimer">Student prototype built for Smart India Hackathon 2026 by Team Blankspace, SGGS Nanded. It is not an official website of the India Meteorological Department or the Ministry of Earth Sciences, and it is not connected to any government system. All officers, stations and records shown are demo data.</p>
+    </aside>
+
+    <main class="login-main">
+      <div class="login-inner">
+        <div class="signed-in-note" id="signed-in-note" hidden></div>
+
+        <!-- Step 1: role -->
+        <section id="step-role" aria-labelledby="h-role">
+          <h2 id="h-role">Select your role to continue</h2>
+          <p class="muted">Your dashboard and permissions are tailored to what you select here.</p>
+          <div class="role-list" id="role-list">
+            <button class="role-card" type="button" data-role="trainee">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 20a7 7 0 0 1 14 0"/></svg>
+              <span><b>Trainee</b><span>Field officers and scientists working through assigned training.</span></span>
+            </button>
+            <button class="role-card" type="button" data-role="trainer">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0"/><circle cx="17" cy="9" r="2.4"/><path d="M15.5 14.2A4.5 4.5 0 0 1 21 18.5"/></svg>
+              <span><b>Trainer / Mentor</b><span>Reviews practical work, answers questions and acts on confusion signals.</span></span>
+            </button>
+            <button class="role-card" type="button" data-role="admin">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2.5v3M12 18.5v3M21.5 12h-3M5.5 12h-3M18.7 5.3l-2.1 2.1M7.4 16.6l-2.1 2.1M18.7 18.7l-2.1-2.1M7.4 7.4L5.3 5.3"/></svg>
+              <span><b>Administrator</b><span>Station heads nominate officers; the Training Division approves batches and watches skill coverage.</span></span>
+            </button>
+          </div>
+          <p class="login-note">New to Capacity Connect? <a href="signup.html">Request an account</a>. The Training Division approves it before you can sign in.</p>
+        </section>
+
+        <!-- Step 2: credentials -->
+        <section id="step-form" hidden aria-labelledby="h-form">
+          <div class="step-top">
+            <button class="back-btn" type="button" id="change-role">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
+              Change role
+            </button>
+            <span class="role-chip" id="role-chip">Trainee</span>
+          </div>
+          <h2 id="h-form">Sign in</h2>
+          <p class="muted">Enter your employee ID to open your dashboard.</p>
+          <form id="login-form" novalidate>
+            <div class="field">
+              <label for="emp-id">Employee ID</label>
+              <input class="input" id="emp-id" name="empId" autocomplete="username" placeholder="As on your service card, e.g. T-4001" required>
+            </div>
+            <div class="field">
+              <label for="password">Password</label>
+              <div class="pw-wrap">
+                <input class="input" id="password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required>
+                <button class="pw-toggle" type="button" id="pw-toggle" aria-label="Show password">Show</button>
+              </div>
+            </div>
+            <p class="field-error" id="login-error" role="alert"></p>
+            <button class="btn btn-primary btn-block" type="submit" id="login-submit">Sign in</button>
+          </form>
+
+          <div class="demo-box" id="demo">
+            <div class="demo-head"><b>Demo access</b><span class="muted small">Password for every demo account: <code>demo@123</code></span></div>
+            <div id="demo-accounts"></div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+  <script type="module" src="js/pages/login.js"></script>
+</body>
+</html>
