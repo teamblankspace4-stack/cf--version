@@ -8,7 +8,7 @@
       "Update available" banner; one tap loads the new version.
    ========================================================= */
 
-const VERSION = "0.9.3";
+const VERSION = "0.9.4";
 const SHELL_CACHE = `cc-shell-${VERSION}`;
 const MEDIA_CACHE = "cc-media";          // module downloads survive app updates
 
@@ -129,10 +129,14 @@ const SHELL = [
 const IS_DEV = ["localhost", "127.0.0.1"].includes(self.location.hostname);
 
 self.addEventListener("install", event => {
-  event.waitUntil(
-    caches.open(SHELL_CACHE)
-      .then(cache => cache.addAll(SHELL.map(url => new Request(url, { cache: "reload" }))))
-  );
+  event.waitUntil((async () => {
+    const cache = await caches.open(SHELL_CACHE);
+    await Promise.all(SHELL.map(async url => {
+      const response = await fetch(new Request(url, { cache: "reload" }));
+      if (!response.ok) throw new Error(`Could not cache ${url}: ${response.status}`);
+      await cache.put(url, await unredirect(response));
+    }));
+  })());
   // No skipWaiting() here: the page asks the user first (see js/pwa.js).
 });
 
@@ -158,10 +162,19 @@ function isCacheable(response) {
   return response && response.status === 200 && response.type === "basic";
 }
 
+/* Some hosts redirect /page.html to /page. A response that arrived through a
+   redirect cannot be replayed for a navigation (Chrome rejects it) and should
+   not be stored, so we copy it into a plain response first. */
+async function unredirect(response) {
+  if (!response || !response.redirected) return response;
+  const body = await response.blob();
+  return new Response(body, { status: response.status, statusText: response.statusText, headers: response.headers });
+}
+
 async function cacheFirst(request) {
   const cached = await caches.match(request, { ignoreSearch: true });
   if (cached) return cached;
-  const response = await fetch(request);
+  const response = await unredirect(await fetch(request));
   if (isCacheable(response)) {
     const cache = await caches.open(SHELL_CACHE);
     cache.put(request, response.clone());
@@ -171,7 +184,7 @@ async function cacheFirst(request) {
 
 async function networkFirst(request) {
   try {
-    const response = await fetch(request);
+    const response = await unredirect(await fetch(request));
     if (isCacheable(response)) {
       const cache = await caches.open(SHELL_CACHE);
       cache.put(request, response.clone());
